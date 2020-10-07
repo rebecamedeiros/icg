@@ -21,7 +21,7 @@ O objetivo é verificar a configuração correta do ambiente OpenGL 3.3, compila
 
 ## Desenvolvimento 
 
-O sistema operacional utilizado para este trabalho foi o Linux Ubuntu 18.04. O primeiro passo para o desenvolvimento foi buscar como realizar a instalação do OpenGL 3.3 no sistema. <br/>
+O sistema operacional utilizado para este trabalho foi o Linux Ubuntu 18.04. O primeiro passo para o desenvolvimento foi buscar como realizar a instalação do OpenGL 3.3 e o que poderia ser necessário a mais para o funcionamento do ambiente. <br/>
 
 Depois que um tutorial foi encontrado e a instalação feita o próximo passo foi realizar o download do programa no repositório da disciplina. <br />
 
