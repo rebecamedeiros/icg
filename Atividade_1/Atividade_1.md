@@ -48,7 +48,7 @@ export MESA_GL_VERSION_OVERRIDE=3.3
 O resultado de uma nova execução foi:
 
 <p align="center">
-  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_1/Figuras/figura2.png?raw=true" /> <br />
+  <img src="https://raw.githubusercontent.com/rebecamedeiros/icg/main/Atividade_1/Figuras/figura2.png" /> <br />
   Figura 2 - Triângulo colorido.
 </p>
 
