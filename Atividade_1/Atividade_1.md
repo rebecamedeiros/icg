@@ -54,5 +54,5 @@ O resultado de uma nova execução foi:
 
 Apesar da solução ter funcionado o comando precisa ser executado cada vez que o terminal for fechado e aberto novamente, uma solução melhor seria algo mais definito para que assim sempre fosse obtido o triângulo da figura 2. 
 
-## Referências bibliográficas
+## Referências
 1. How to Install OpenGL on Ubuntu Linux. Disponível em: <http://www.codebind.com/linux-tutorials/install-opengl-ubuntu-linux/>.
