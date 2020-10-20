@@ -18,6 +18,12 @@ Matrícula: 11500782
 
 ## Desenvolvimento 
 
+### PutPixel()
+
+A primeira função desenvolvida na atividade possui o seguinte objetivo:
+
+> Rasteriza   um   ponto   na   memória   de   vídeo   recebendo   como   parâmetros   ascoordenadas (x,y) do pixel na tela e sua cor (RGBA).
+
 ```
 
 ```
