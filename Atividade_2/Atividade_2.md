@@ -15,12 +15,18 @@ Matrícula: 11500782
 
 ## Introdução
 
+Esta atividade é a segunda atividade prática para a disciplina de Introdução à Computação Gráfica. 
 
-## Desenvolvimento 
+O objetivo é a implementação de algoritmos para rasterização de pontos e linhas. E atráves dessas implementações realizar o desenho de um triângulo.
+
+Como foi visto durante as aulas o sistema operacional não permite o acesso direto a memória de vídeo. Assim, para realização da atividade foi utilizado um *framework* fornecido pelo professor. Entre os arquivos do *framework* os únicos modificados foram: *mygl.h* e *mygl.c*.
+
+## Desenvolvimento
+
+
 
 ### PutPixel()
 
-A primeira função desenvolvida na atividade possui o seguinte objetivo:
 
 > Rasteriza   um   ponto   na   memória   de   vídeo   recebendo   como   parâmetros   ascoordenadas (x,y) do pixel na tela e sua cor (RGBA).
 
