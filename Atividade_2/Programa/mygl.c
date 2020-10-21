@@ -37,24 +37,6 @@ void PutPixel(Pontos p, Cores cor){
     fb_ptr[pos + 3] = cor.alpha;
 }
 
-// Funções para calcular interpolação e distância
-Cores InterpolacaoDeCores(float a, Cores cor1, Cores cor2){
-    Cores c;
-
-    c.red = cor1.red + ((1 - a) * cor2.red);
-    c.green = cor1.green + ((1 - a) * cor2.green);
-    c.blue = cor1.blue + ((1 - a) * cor2.blue);
-    c.alpha = cor1.alpha + ((1 - a) * cor2.alpha);
-
-    return c;
-}
-
-float Distancia(Pontos p1, Pontos p2){
-    //float d = sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
-    
-    return sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
-}
-
 void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
    
     // cálculo de dx e dy
@@ -117,10 +99,7 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
-                ComprimentoP = Distancia(p1, p2);
-                DistanciaP = Distancia(p1, p2);
-                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
-                PutPixel(p1, cor1);
+
             }
         } else {
 
@@ -138,10 +117,7 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 } 
                 // Adicionar interpolação das cores
                 // E PutPixel()
-                ComprimentoP = Distancia(p1, p2);
-                DistanciaP = Distancia(p1, p2);
-                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
-                PutPixel(p1, cor1);
+
             }
             
         }
@@ -163,10 +139,7 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
-                ComprimentoP = Distancia(p1, p2);
-                DistanciaP = Distancia(p1, p2);
-                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
-                PutPixel(p1, cor1);
+
             }
 
         } else {
@@ -184,10 +157,6 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
-                ComprimentoP = Distancia(p1, p2);
-                DistanciaP = Distancia(p1, p2);
-                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
-                PutPixel(p1, cor1);
             }
         }
     }
