@@ -1,4 +1,5 @@
 #include "mygl.h"
+#include <math.h>
 
 unsigned char* fb_ptr = NULL;
 
@@ -27,22 +28,35 @@ void CloseMyGl(void) {
 //
 
 // 
-void PutPixel(Vertices v, Cores cor){
+void PutPixel(Pontos p, Cores cor){
     
-    int pos = (IMAGE_WIDTH*v.y + v.x) * 4;
+    int pos = (IMAGE_WIDTH*p.y + p.x) * 4;
     fb_ptr[pos]     = cor.red;
     fb_ptr[pos + 1] = cor.green;
     fb_ptr[pos + 2] = cor.blue;
     fb_ptr[pos + 3] = cor.alpha;
 }
 
+// Funções para calcular interpolação e distância
+Cores InterpolacaoDeCores(float a, Cores cor1, Cores cor2){
+    Cores c;
 
-void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
-    
+    c.red = cor1.red + ((1 - a) * cor2.red);
+    c.green = cor1.green + ((1 - a) * cor2.green);
+    c.blue = cor1.blue + ((1 - a) * cor2.blue);
+    c.alpha = cor1.alpha + ((1 - a) * cor2.alpha);
+}
+
+float distancia(Pontos p1, Pontos p2){
+    float d = sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * p2.y - p1.y));
+    return d;
+}
+
+void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
    
     // cálculo de dx e dy
-    int dx = vert2.x - vert1.x;
-    int dy = vert2.y - vert2.y;
+    int dx = p2.x - p1.x;
+    int dy = p2.y - p2.y;
 
     int d; // variável de decisão
 
@@ -58,9 +72,13 @@ void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
 
     int InclinacaoReta;
 
+    int DistanciaP; // distância parcial de p1 até p2
+
+    int ComprimentoP; 
+
     if (dx < 0){
 
-        DrawLine(vert2, vert1, cor2, cor1);
+        DrawLine(p2, p1, cor2, cor1);
         return;
 
     } 
@@ -76,7 +94,7 @@ void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
 
     }
 
-    PutPixel(vert1, cor1);
+    PutPixel(p1, cor1);
 
     if(dx >= InclinacaoReta * dy){
 
@@ -84,32 +102,34 @@ void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
             
             d = 2 * dy + dx; // decisão para o primeiro pixel 
 
-            while(vert1.x < vert2.x){
+            while(p1.x < p2.x){
 
                 if (d <= 0){
                     d += inc_NE2;
-                    vert1.x++;
-                    vert1.y++;
+                    p1.x++;
+                    p1.y++;
                 } else {
                     d += inc_L1;
-                    vert1.x++;
+                    p1.x++;
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
+
+                
             }
         } else {
 
             d = 2 * dy - dx;
 
-            while (vert1.x < vert2.x) {
+            while (p1.x < p2.x) {
                 
                 if (d < 0){
                     d += inc_L1;
-                    vert1.x++;
+                    p1.x++;
                 } else {
                     d += inc_NE1;
-                    vert1.x++;
-                    vert1.y++;
+                    p1.x++;
+                    p1.y++;
                 } 
                 // Adicionar interpolação das cores
                 // E PutPixel()
@@ -122,15 +142,15 @@ void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
 
             d = dy + 2 * dx;
 
-            while (vert1.y > vert2.y) {
+            while (p1.y > p2.y) {
                 
                 if(d < 0){
                     d += inc_L1;
-                    vert1.y--;
+                    p1.y--;
                 } else {
                     d += inc_NE2;
-                    vert1.x++;
-                    vert1.y--;
+                    p1.x++;
+                    p1.y--;
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
@@ -140,14 +160,14 @@ void DrawLine(Vertices vert1, Vertices vert2, Cores cor1, Cores cor2){
 
             d = dy - 2 * dx;
 
-            while (vert1.y < vert2.y) {
+            while (p1.y < p2.y) {
                 if (d < 0){
                     d += inc_NE1;
-                    vert1.x++;
-                    vert1.y++;
+                    p1.x++;
+                    p1.y++;
                 } else {
                     d += inc_L2;
-                    vert1.y++;
+                    p1.y++;
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
@@ -171,7 +191,7 @@ void MyGlDraw(void) {
 
     // Exemplo para a função PutPixel()
     /*
-    Vertices p1 = {250, 250};
+    Pontos p1 = {250, 250};
     Cores c1 = {64,224,208,255};
 
     PutPixel(p1, c1); */ 
