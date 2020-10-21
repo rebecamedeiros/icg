@@ -1,5 +1,5 @@
 #include "mygl.h"
-#include <math.h>
+//#include <math.h>
 
 unsigned char* fb_ptr = NULL;
 
@@ -47,8 +47,9 @@ Cores InterpolacaoDeCores(float a, Cores cor1, Cores cor2){
     c.alpha = cor1.alpha + ((1 - a) * cor2.alpha);
 }
 
-float distancia(Pontos p1, Pontos p2){
-    float d = sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * p2.y - p1.y));
+float Distancia(Pontos p1, Pontos p2){
+    //float d = sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
+    //float d = ((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
     return d;
 }
 
@@ -114,8 +115,10 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
-
-                
+                ComprimentoP = Distancia(p1, p2);
+                DistanciaP = Distancia(p1, p2);
+                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
+                PutPixel(p1, cor1);
             }
         } else {
 
@@ -133,6 +136,10 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 } 
                 // Adicionar interpolação das cores
                 // E PutPixel()
+                ComprimentoP = Distancia(p1, p2);
+                DistanciaP = Distancia(p1, p2);
+                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
+                PutPixel(p1, cor1);
             }
             
         }
@@ -154,6 +161,10 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
+                ComprimentoP = Distancia(p1, p2);
+                DistanciaP = Distancia(p1, p2);
+                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
+                PutPixel(p1, cor1);
             }
 
         } else {
@@ -171,11 +182,15 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
+                ComprimentoP = Distancia(p1, p2);
+                DistanciaP = Distancia(p1, p2);
+                cor1 = InterpolacaoDeCores(DistanciaP/ComprimentoP, cor1, cor2);
+                PutPixel(p1, cor1);
             }
         }
     }
 
-    //PutPixel();
+    PutPixel(p2, cor2);
 
 }
 
@@ -195,4 +210,16 @@ void MyGlDraw(void) {
     Cores c1 = {64,224,208,255};
 
     PutPixel(p1, c1); */ 
+
+    // Exemplo para a função DrawLine()
+
+    Pontos p1 = {250, 250};
+    Cores c1 = {127,255,212,255};
+    
+    Pontos p2 = {210,210};
+    Cores c2 = {0,139,139,255};
+
+    DrawLine(p1, p2, c1, c2);
+
+
 }
