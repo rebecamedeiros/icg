@@ -47,11 +47,6 @@ A figura abaixo apresenta o resultado:
 
 **Figura 1 - Ponto obtido com a função**.
 
-### DrawLine()
-
-
-### DrawTriangle()
-
 ## Resultados
 
 
