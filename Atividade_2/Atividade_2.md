@@ -25,10 +25,6 @@ Para esta atividades três funções foram desenvolvidas: PutPixel(), DrawLine()
 
 O sistema operacional utilizado foi: Linux Ubuntu 18.04 LTS.
 
-#### Pixels
-
-#### Algoritmo do Ponto Médio
-
 ### PutPixel()
 
 Pixels são os menores elementos de um frame, cada pixel possui uma coordenada e três componentes de cores: vermelho(R), verde(G) e azul(B). E um canal Alpha(A) que não interfere com a cor.
