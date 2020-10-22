@@ -15,13 +15,15 @@ Matrícula: 11500782
 
 ## Introdução
 
-Esta atividade é a segunda atividade prática para a disciplina de Introdução à Computação Gráfica. 
-
-O objetivo é a implementação de algoritmos para rasterização de pontos e linhas. E atráves dessas implementações realizar o desenho de um triângulo.
+Esta atividade é a segunda atividade prática para a disciplina de Introdução à Computação Gráfica. O objetivo é a implementação de algoritmos para rasterização de pontos e linhas. E atráves dessas implementações realizar o desenho de um triângulo.
 
 Como foi visto durante as aulas o sistema operacional não permite o acesso direto a memória de vídeo. Assim, para realização da atividade foi utilizado um *framework* fornecido pelo professor. Entre os arquivos do *framework* os únicos modificados foram: *mygl.h* e *mygl.c*.
 
 ## Desenvolvimento
+
+Para esta atividades três funções foram desenvolvidas: PutPixel(), DrawLine() e DrawTriangle.
+
+O sistema operacional utilizado foi: Linux Ubuntu 18.04 LTS.
 
 #### Pixels
 
@@ -29,13 +31,13 @@ Como foi visto durante as aulas o sistema operacional não permite o acesso dire
 
 ### PutPixel()
 
+Pixels são os menores elementos de um frame, cada pixel possui uma coordenada e três componentes de cores: vermelho(R), verde(G) e azul(B). E um canal Alpha(A) que não interfere com a cor.
 
-> Rasteriza   um   ponto   na   memória   de   vídeo   recebendo   como   parâmetros   ascoordenadas (x,y) do pixel na tela e sua cor (RGBA).
+Para esta primeira função o objetivo é rasterizar um ponto na memória de vídeo, recebendo como parâmetros: as coordenadas e as cores. 
 
 ```
 
 ```
-
 <img src="https://raw.githubusercontent.com/rebecamedeiros/icg/main/Atividade_2/Figuras/figura1.png" /> <br />
   **Figura 1 - Resultado obtido com a função PutPixel()**.
 
