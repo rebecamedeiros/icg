@@ -37,6 +37,30 @@ void PutPixel(Pontos p, Cores cor){
     fb_ptr[pos + 3] = cor.alpha;
 }
 
+// Funções para calcular interpolação e distância
+Cores InterpolacaoDeCores(float a, Cores cor1, Cores cor2){
+    Cores c;
+
+    c.red = cor1.red + ((1 - a) * cor2.red);
+    c.green = cor1.green + ((1 - a) * cor2.green);
+    c.blue = cor1.blue + ((1 - a) * cor2.blue);
+    c.alpha = cor1.alpha + ((1 - a) * cor2.alpha);
+
+    return c;
+}
+
+float DistanciaEntrePontos(Pontos p1, Pontos p2){
+
+    //float r = ((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
+ 
+    return sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
+
+    //return pow(((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y)), 0.5);
+
+}
+
+// 
+
 void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
    
     // cálculo de dx e dy
@@ -57,9 +81,9 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
 
     int InclinacaoReta;
 
-    int DistanciaP; // distância parcial de p1 até p2
+    float Distancia; // distância parcial de p1 até p2
 
-    int ComprimentoP; 
+    float Comprimento = DistanciaEntrePontos(p1, p2);
 
     if (dx < 0){
 
@@ -79,7 +103,9 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
 
     }
 
-    PutPixel(p1, cor1);
+    Pontos ponto = p1;
+    Cores c = cor1;
+    PutPixel(ponto, c);
 
     if(dx >= InclinacaoReta * dy){
 
@@ -87,36 +113,40 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
             
             d = 2 * dy + dx; // decisão para o primeiro pixel 
 
-            while(p1.x < p2.x){
+            while(ponto.x < p2.x){
 
-                if (d <= 0){
+                if (d < 0){
                     d += inc_NE2;
-                    p1.x++;
-                    p1.y++;
+                    ponto.x++;
+                    ponto.y--;
                 } else {
                     d += inc_L1;
-                    p1.x++;
+                    ponto.x++;
                 }
-                // Adicionar interpolação das cores
-                // E PutPixel()
+
+                Distancia = DistanciaEntrePontos(ponto, p2);
+                c = InterpolacaoDeCores(Distancia/Comprimento, cor1, cor2);
+                PutPixel(ponto, c);
 
             }
         } else {
 
             d = 2 * dy - dx;
 
-            while (p1.x < p2.x) {
+            while (ponto.x < p2.x) {
                 
                 if (d < 0){
                     d += inc_L1;
-                    p1.x++;
+                    ponto.x++;
                 } else {
                     d += inc_NE1;
-                    p1.x++;
-                    p1.y++;
+                    ponto.x++;
+                    ponto.y++;
                 } 
-                // Adicionar interpolação das cores
-                // E PutPixel()
+
+                Distancia = DistanciaEntrePontos(ponto, p2);
+                c = InterpolacaoDeCores(Distancia/Comprimento, cor1, cor2);
+                PutPixel(ponto, c);
 
             }
             
@@ -127,18 +157,20 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
 
             d = dy + 2 * dx;
 
-            while (p1.y > p2.y) {
+            while (ponto.y > p2.y) {
                 
                 if(d < 0){
                     d += inc_L1;
-                    p1.y--;
+                    ponto.y--;
                 } else {
                     d += inc_NE2;
-                    p1.x++;
-                    p1.y--;
+                    ponto.x++;
+                    ponto.y--;
                 }
-                // Adicionar interpolação das cores
-                // E PutPixel()
+
+                Distancia = DistanciaEntrePontos(ponto, p2);
+                c = InterpolacaoDeCores(Distancia/Comprimento, cor1, cor2);
+                PutPixel(ponto, c);
 
             }
 
@@ -146,17 +178,22 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
 
             d = dy - 2 * dx;
 
-            while (p1.y < p2.y) {
+            while (ponto.y < p2.y) {
                 if (d < 0){
                     d += inc_NE1;
-                    p1.x++;
-                    p1.y++;
+                    ponto.x++;
+                    ponto.y++;
                 } else {
                     d += inc_L2;
-                    p1.y++;
+                    ponto.y++;
                 }
                 // Adicionar interpolação das cores
                 // E PutPixel()
+
+                Distancia = DistanciaEntrePontos(ponto, p2);
+                c = InterpolacaoDeCores(Distancia/Comprimento, cor1, cor2);
+                PutPixel(ponto, c);
+
             }
         }
     }
@@ -165,7 +202,12 @@ void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
 
 }
 
-void DrawTriangle(void){
+void DrawTriangle(Pontos p1, Pontos p2, Pontos p3, Cores c1, Cores c2, Cores c3){
+
+    DrawLine(p1,p2,c1,c2);
+    DrawLine(p2,p3,c2,c3);
+    DrawLine(p3,p1,c3,c1);
+
     
 }
 // Definição da função que chamará as funções implementadas pelo aluno
@@ -180,17 +222,19 @@ void MyGlDraw(void) {
     Pontos p1 = {250, 250};
     Cores c1 = {64,224,208,255};
 
-    PutPixel(p1, c1); */ 
-
+    PutPixel(p1, c1);
+    */
     // Exemplo para a função DrawLine()
 
-    Pontos p1 = {250, 250};
-    Cores c1 = {127,255,212,255};
+
+    Pontos p1 = {250, 50};
+    Cores c1 = {0,0,255,255};
     
-    Pontos p2 = {210,210};
-    Cores c2 = {0,139,139,255};
+    Pontos p2 = {170, 400};
+    Cores c2 = {0,0,255,255};
 
     DrawLine(p1, p2, c1, c2);
-
+    
+    //DrawTriangle(p1, p2,p3,c1,c2,c3);
 
 }
