@@ -37,26 +37,31 @@ void PutPixel(Pontos p, Cores cor){
     fb_ptr[j + 3] = cor.alpha;
 }
 
+/*
 
 void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2){
-   
+
 }
 
 void DrawTriangle(Pontos p1, Pontos p2, Pontos p3, Cores c1, Cores c2, Cores c3){
 
-    
+
 }
+
+*/
+
 // Definição da função que chamará as funções implementadas pelo aluno
 void MyGlDraw(void) {
     //
     // >>> Caro aluno: chame aqui as funções que você implementou <<<
     //
-   
+    
 
     // Exemplo para a função PutPixel()
-    Pontos p1 = {250, 250};
+    
+    Pontos p1 = {250, 15};
     Cores c1 = {64,224,208,255};
 
     PutPixel(p1, c1);
-    
+
 }
