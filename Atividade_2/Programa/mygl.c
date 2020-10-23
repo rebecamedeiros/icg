@@ -59,7 +59,7 @@ void MyGlDraw(void) {
 
     // Exemplo para a função PutPixel()
     
-    Pontos p1 = {250, 15};
+    Pontos p1 = {250, 250};
     Cores c1 = {64,224,208,255};
 
     PutPixel(p1, c1);
