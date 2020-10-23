@@ -29,7 +29,7 @@ O sistema operacional utilizado foi: Linux Ubuntu 18.04 LTS.
 
 Pixels são os menores elementos de um frame, cada pixel possui uma coordenada e três componentes de cores: vermelho(R), verde(G) e azul(B). E um canal Alpha(A) que não interfere com a cor.
 
-Para esta primeira função o objetivo é rasterizar um ponto na memória de vídeo, recebendo como parâmetros: as coordenadas e as cores. Para descrever os pixels e cores foram utilizadas *structs*. A função fica da seguinte forma:
+Para esta primeira função o objetivo é rasterizar um ponto na memória de vídeo, recebendo como parâmetros: as coordenadas e as cores. Para descrever os pixels e cores foram utilizadas *structs*. Seguindo um dos exemplos apresentados na especificação do trabalho, a função ficou da seguinte forma:
 
 ```
 void PutPixel(Pontos p, Cores cor){
@@ -49,6 +49,7 @@ A figura abaixo apresenta o resultado:
 
 ## Resultados
 
+A primeira função apresentou a solução mais rápida, com o resultado esperado. As dificuldades surgiram durante o desenvolvimento da função DrawLine(), com a implementação do Algoritmo do Ponto Médio. A função não apresentou o resultado correto durante os testes, por exemplo, ao colocar para desenhar duas retas apenas uma reta aparecia com erros de coordenadas e no lugar de uma segunda reta aparecia apenas um pixel.
 
 ## Referências
-1.[Cores](https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb)
+1. [Cores](https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb)
