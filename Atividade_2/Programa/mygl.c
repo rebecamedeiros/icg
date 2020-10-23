@@ -1,5 +1,5 @@
 #include "mygl.h"
-#include <math.h>
+//#include <math.h>
 
 unsigned char* fb_ptr = NULL;
 
