@@ -49,7 +49,7 @@ A figura abaixo apresenta o resultado:
 
 ## Resultados
 
-A primeira função apresentou a solução mais rápida, com o resultado esperado. As dificuldades surgiram durante o desenvolvimento da função DrawLine(), com a implementação do Algoritmo do Ponto Médio. A função não apresentou o resultado correto durante os testes, por exemplo, ao colocar para desenhar duas retas apenas uma reta aparecia com erros de coordenadas e no lugar de uma segunda reta aparecia apenas um pixel.
+A primeira função apresentou a solução mais rápida, com o resultado esperado. As dificuldades surgiram durante o desenvolvimento da função DrawLine(), com a implementação do Algoritmo do Ponto Médio. A função não apresentou o resultado correto durante os testes, por exemplo, ao colocar para desenhar duas retas apenas uma reta aparecia com erros de coordenadas e de tamanho, no lugar de uma segunda reta aparecia apenas um pixel.
 
 ## Referências
 1. [Cores](https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb)
