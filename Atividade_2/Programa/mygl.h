@@ -30,8 +30,8 @@ void MyGlDraw(void);
 // >>> Caro aluno: declare aqui as funções que você implementar <<<
 //
 
-void PutPixel(Pontos v, Cores cor);
+void PutPixel(Pontos p, Cores cor);
 void DrawLine(Pontos p1, Pontos p2, Cores cor1, Cores cor2);
-void DrawTriangle(void);
+void DrawTriangle(Pontos p1, Pontos p2, Pontos p3, Cores c1, Cores c2, Cores c3);
 
 #endif  // MYGL_H
