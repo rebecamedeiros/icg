@@ -53,3 +53,4 @@ A primeira função apresentou a solução mais rápida, com o resultado esperad
 
 ## Referências
 1. [Cores](https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb)
+2. Aulas da disciplina de Introdução à Computação Gráfica
