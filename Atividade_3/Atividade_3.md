@@ -8,15 +8,15 @@ Matrícula: 11500782
 
 ## Sumário
 
-1. Introdução
-2. Desenvolvimento
-   <p>2.1 Exercício 1<br>
-   <p>2.2 Exercício 2<br>
-   <p>2.3 Exercício 3<br> 
-   <p>2.4 Exercício 4<br>
-   <p>2.5 Exercício 5<br> 
-3. Resultados
-4. Referências
+1. [Introdução](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#introdu%C3%A7%C3%A3o)
+2. [Desenvolvimento](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#desenvolvimento)
+   * [Exercício 1](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-1)
+   * [Exercício 2](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-2)
+   * [Exercício 3](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-3) 
+   * [Exercício 4](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-4)
+   * [Exercício 5](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-5)
+3. [Resultados](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#resultados)
+4. [Referências](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#refer%C3%AAncias)
 
 ## Introdução
 
