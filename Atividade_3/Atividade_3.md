@@ -1,4 +1,4 @@
-# Atividade Prática 3 - Implementação do 
+# Atividade Prática 3 - Implementação do Pipeline Gráfico
 
 Disciplina: GDSCO0051 - Introdução à Computação Gráfica - 2020.1
 Professor: Christian Azambuja Pagot
