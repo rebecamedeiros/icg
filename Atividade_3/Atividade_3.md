@@ -46,28 +46,43 @@ A figura abaixo mostra o resultado da execução:
 #### Pipeline Gráfico
 
 
-### Exercício 1
+### Exercício 1: Escala
 O primeiro exercício é uma modificação na matriz Model para mudar a escala dos dois triângulos. Com os fatores de escala: (x,y,z) = (1/3, 3/2, 1) a matriz ficou da seguinte forma:
 
 ```
-float model_array[16] = {0.333f, 0.0f, 0.0f, 0.0f, 
+float model_array[16] = {0.33f, 0.0f, 0.0f, 0.0f, 
                          0.0f, 1.5f, 0.0f, 0.0f, 
                          0.0f, 0.0f, 1.0f, 0.0f, 
                          0.0f, 0.0f, 0.0f, 1.0f};
 ```
+O resultado foi o seguinte:
 
 <p align="center">
   <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img2.png" /> <br />
   Figura 2 - Resultado da mudança de escala.
 </p>
 
-### Exercício 2 
+### Exercício 2: Translação
+O segundo exercício é uma modificação na matriz Model para realizar uma translação. Os fatores para a transformação foram os seguintes: (x, y, z) = (1, 0, 0). A matriz ficou da seguinte forma: 
 
-### Exercício 3 
+```
+float model_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
+                         0.0f, 1.0f, 0.0f, 0.0f, 
+                         0.0f, 0.0f, 1.0f, 0.0f, 
+                         1.0f, 0.0f, 0.0f, 1.0f};
+```
+O resultado foi o seguinte:
+<p align="center">
+  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img3.png" /> <br />
+  Figura 3 - Resultado da translação.
+</p>
 
-### Exercício 4
 
-### Exercício 5
+### Exercício 3: Projeção Perspectiva
+
+### Exercício 4: Posição da Câmera
+
+### Exercício 5: Transformações Livres
 
 
 ## Resultados
