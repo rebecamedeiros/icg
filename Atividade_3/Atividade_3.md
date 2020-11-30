@@ -77,8 +77,20 @@ O resultado foi o seguinte:
   Figura 3 - Resultado da translação.
 </p>
 
-
 ### Exercício 3: Projeção Perspectiva
+O terceiro exercício é uma modificação na matriz de Projeção. Com o parâmetro d = 1/2. A matrix ficou da seguinte forma:
+
+```
+float proj_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
+                        0.0f, 1.0f, 0.0f, 0.0f, 
+                        0.0f, 0.0f, 1.0f, -2.0f, 
+                        0.0f, 0.0f, 0.5f, 1.0f};
+```
+O resultado foi o seguinte:
+<p align="center">
+  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img4.png" /> <br />
+  Figura 4 - Resultado da modificação.
+</p>
 
 ### Exercício 4: Posição da Câmera
 
