@@ -1,9 +1,9 @@
 # Atividade Prática 3 - Implementação do Pipeline Gráfico
 
-Disciplina: GDSCO0051 - Introdução à Computação Gráfica - 2020.1
+Disciplina: GDSCO0051 - Introdução à Computação Gráfica - 2020.1 <br />
 Professor: Christian Azambuja Pagot
 
-Aluna: Rebeca Andrade Medeiros
+Aluna: Rebeca Andrade Medeiros <br />
 Matrícula: 11500782
 
 ## Sumário
@@ -19,8 +19,27 @@ Matrícula: 11500782
 4. [Referências](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#refer%C3%AAncias)
 
 ## Introdução
+Esta atividade é a terceira atividade prática para a disciplina de Introdução á Computação Gráfica. O objetivo da atividade é a implementação das transformações geométricas que compõem o pipeline gráfico. Como foi descrito pelo professor a implementação ocorre com auxílio da bibiloteca **glm** e a execução ocorre nos *shaders* do OpenGL.
 
 ## Desenvolvimento
+O sistema operional utilizado para atividade foi o Linux Ubuntu 18.04 LTS.
+
+O primeiro passo para o desenvolvimento da atividade foi o *download* do código fornecido pelo professor e a instalação das dependências. O código foi compilado utilizando o **MakeFile** disponibilizado, com o comando: 
+
+```
+$ make
+```
+Alguns *warnings* apareceram na tela durante a compilação, mesmo assim o código compilou sem problemas. A primeira dificuldade apareceu durante a execução, com a janela de exibição abrindo e fechando rapidamente sem exibir as imagens esperadas. Observando as mensagens de erro foi observado que o erro era relacionado ao GLSL, com o comando abaixo foi possível executar o código, porém não é a melhor solução já que a cada execução o comando deve ser usado.
+
+```
+$ export MESA_GL_VERSION_OVERRIDE=3.3
+```
+A figura abaixo mostra o resultado da execução:
+
+<p align="center">
+  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img1.png" /> <br />
+  Figura 1 - Janela exibida durante a execução.
+</p>
 
 ### Exercício 1
 
