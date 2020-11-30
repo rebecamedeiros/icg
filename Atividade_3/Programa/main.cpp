@@ -71,6 +71,15 @@ void Display(void) {
                              0.0f, 0.0f, 1.0f, 0.0f, 
                              0.0f, 0.0f, 0.0f, 1.0f};
     glm::mat4 model_mat = glm::make_mat4(model_array);
+    
+    // Exercício 1: Escala
+    /*
+    float model_array[16] = {0.333f, 0.0f, 0.0f, 0.0f, 
+                             0.0f, 1.5f, 0.0f, 0.0f, 
+                             0.0f, 0.0f, 1.0f, 0.0f, 
+                             0.0f, 0.0f, 0.0f, 1.0f};
+    glm::mat4 model_mat = glm::make_mat4(model_array);
+    */
 
     // Matriz View ////////////////////////////////////////////////////////////
     // You will have to change the contents of this matrix for the exercises
