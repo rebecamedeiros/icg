@@ -99,13 +99,22 @@ Para o quarto exercício a matrix View será modificada para obtenção do resul
 - Vetor UP da câmera = (0, 1, 0)
 - Ponto para o qual a câmera está apontando = (0, 0 , 0)
 
+<p align="center">
+  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img5.png" /> <br />
+  Figura 5 - Resultado da nova matrix View.
+</p>
+
+
 
 ### Exercício 5: Transformações Livres
 
 
 ## Resultados
+Foi possível chegar em todos os exercícios aos resultados presentes na documentação da atividade. Houve um pouco de dificuldade no ínicio para entender a organização das matrizes no **glm** e as funções utilizadas.
+
+O exercício 4 apresentou a maior dificuldade, com o auxílio da documentação sobre as funções do **glm** foi possível entender como os vetores e matrizes poderiam ser criados. O resultado das primeiras execuções deste exercício apresentaram resultados diferentes da Figura [8] presente na documentação. Primeiro apareceu apenas uma linha azul inclinada, depois os dois triângulos apareceram de ponta-cobiça. Isto aconteceu por conta de erros nos valores dos vetores e falta da normalização de Xcam, Ycam e Zcam. 
 
 ## Referências
 1 - [Erro GLSL](https://stackoverflow.com/questions/52592309/0110-error-glsl-3-30-is-not-supported-ubuntu-18-04-c) <br />
-2 - [OpenGL Mathematics (GLM)](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html)
-3 - [Funções Geométricas] (https://glm.g-truc.net/0.9.4/api/a00131.html#ga68b931c228750eeba844c273c54ca43d)
+2 - [OpenGL Mathematics (GLM)](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html) <br />
+3 - [Funções Geométricas](https://glm.g-truc.net/0.9.4/api/a00131.html#ga68b931c228750eeba844c273c54ca43d) <br />
