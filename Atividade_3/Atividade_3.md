@@ -31,7 +31,7 @@ O primeiro passo para o desenvolvimento da atividade foi o *download* do código
 ```
 $ make
 ```
-Alguns *warnings* apareceram na tela durante a compilação, mesmo assim o código compilou sem problemas. A primeira dificuldade apareceu durante a execução, com a janela de exibição abrindo e fechando rapidamente sem exibir as imagens esperadas. Observando as mensagens de erro foi observado que o erro era relacionado ao GLSL, com o comando abaixo foi possível executar o código, porém não é a melhor solução já que a cada execução o comando deve ser usado.
+Alguns *warnings* apareceram na tela durante a compilação, mesmo assim o código compilou sem problemas. A primeira dificuldade apareceu durante a execução, com a janela de exibição abrindo e fechando rapidamente sem exibir as imagens esperadas. Observando as mensagens de erro foi observado que o erro era relacionado ao GLSL, com o comando abaixo [1] foi possível executar o código, porém não é a melhor solução já que a cada execução o comando deve ser usado.
 
 ```
 $ export MESA_GL_VERSION_OVERRIDE=3.3
@@ -93,6 +93,12 @@ O resultado foi o seguinte:
 </p>
 
 ### Exercício 4: Posição da Câmera
+Para o quarto exercício a matrix View será modificada para obtenção do resultado presente na Figura (8) do documento desta atividade. Para isso, a matriz de Projeção utilizada será a do Exercício (3). Os parâmetros informados são os seguintes:
+
+- Posição da câmera = (-1/10, 1/10, 1/4)
+- Vetor UP da câmera = (0, 1, 0)
+- Ponto para o qual a câmera está apontando = (0, 0 , 0)
+
 
 ### Exercício 5: Transformações Livres
 
@@ -100,3 +106,6 @@ O resultado foi o seguinte:
 ## Resultados
 
 ## Referências
+1 - [Erro GLSL](https://stackoverflow.com/questions/52592309/0110-error-glsl-3-30-is-not-supported-ubuntu-18-04-c) <br />
+2 - [OpenGL Mathematics (GLM)](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html)
+3 - [Funções Geométricas] (https://glm.g-truc.net/0.9.4/api/a00131.html#ga68b931c228750eeba844c273c54ca43d)
