@@ -83,8 +83,8 @@ O terceiro exercício é uma modificação na matriz de Projeção. Com o parâm
 ```
 float proj_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                         0.0f, 1.0f, 0.0f, 0.0f, 
-                        0.0f, 0.0f, 1.0f, -2.0f, 
-                        0.0f, 0.0f, 0.5f, 1.0f};
+                        0.0f, 0.0f, 1.0f, -8.0f, 
+                        0.0f, 0.0f, 0.125f, 1.0f};
 ```
 O resultado foi o seguinte:
 <p align="center">
@@ -95,9 +95,9 @@ O resultado foi o seguinte:
 ### Exercício 4: Posição da Câmera
 Para o quarto exercício a matrix View será modificada para obtenção do resultado presente na Figura (8) do documento desta atividade. Para isso, a matriz de Projeção utilizada será a do Exercício (3). Os parâmetros informados são os seguintes:
 
-- Posição da câmera = (-1/10, 1/10, 1/4)
+- Posição da câmera = (-1/10, 1/10, 1/10)
 - Vetor UP da câmera = (0, 1, 0)
-- Ponto para o qual a câmera está apontando = (0, 0 , 0)
+- Ponto para o qual a câmera está apontando = (0, 0 , -1)
 
 <p align="center">
   <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img5.png" /> <br />
