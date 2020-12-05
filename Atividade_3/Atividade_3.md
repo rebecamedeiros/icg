@@ -126,9 +126,35 @@ O primeiro passo para a resolução foi criar os vetores acima, para isso foi us
 ```
 glm::vec3 posicao = glm::vec3(-0.1f, 0.1f, 0.1f);
 ```
+Como foi visto em aula para formar a base ortonormal da câmera é preciso calcular Xcâmera, Ycâmera e Zcâmera. Assim como diz na documentação o vetor de direção da câmera foi calculado subtraindo a posição da câmera do ponto para qual está apontando. Para realizar os cálculos foram utilizadas as seguintes funções: **normalize()** e **cross()**. O código abaixo mostra como o cálculo Xcâmera foi feito:
 
+```
+glm::vec3 xcam = glm::normalize(glm::cross(up, zcam));
+```
+O próximo passo foi a criação da matriz B transposta, para isso seguindo a dica do professor primeiro foi criado um array de 16 floats. Esse array foi montado seguindo o que foi visto em aula:
 
-Resultado:
+```
+float matrixB_array[16] = {xcam.x, ycam.x, zcam.x, 0.0f,
+                           xcam.y, ycam.y, zcam.y, 0.0f,
+                           xcam.z, ycam.z, zcam.z, 0.0f,
+                           0.0f, 0.0f, 0.0f, 1.0f};
+```
+Em seguida foi usada a função make_mat4() para criar a matriz:
+
+```
+glm::mat4 B_matrix = glm::make_mat4(matrixB_array);
+```
+A matrix T foi criada de forma parecida, com um array de 16 floats e a função make_mat4():
+
+```
+float matrixT_array[16] = {1.0f, 0.0f, 0.0f, 0.0f,
+                           0.0f, 1.0f, 0.0f, 0.0f,
+                           0.0f, 0.0f, 1.0f, 0.0f,
+                           -posicao.x, -posicao.y, -posicao.z, 1.0f};
+
+glm::mat4 T_matrix = glm::make_mat4(matrixT_array);
+```
+E a matrix de visualização foi criada calculando o produto das matrizes BT e T. A figura gerada com a matriz foi:
 <p align="center">
   <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img5.png" /> <br />
   Figura 6 - Resultado da mudança na matrix.
@@ -146,5 +172,5 @@ O exercício 4 apresentou a maior dificuldade, com o auxílio da documentação 
 ## Referências
 1 - [Erro GLSL](https://stackoverflow.com/questions/52592309/0110-error-glsl-3-30-is-not-supported-ubuntu-18-04-c) <br />
 2 - [OpenGL Mathematics (GLM)](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html) <br />
-3 - [Funções Geométricas](https://glm.g-truc.net/0.9.4/api/a00131.html#ga68b931c228750eeba844c273c54ca43d) <br />
-4 - [Matrizes](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/#the-projection-matrix) <br /> 
+3 - [Funções Geométricas](https://glm.g-truc.net/0.9.4/api/a00131.html) <br />
+4 - [Matrizes](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/#the-projection-matrix) <br />
