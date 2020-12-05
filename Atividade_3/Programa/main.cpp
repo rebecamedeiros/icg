@@ -66,17 +66,21 @@ void Display(void) {
 
     // Matriz Model ///////////////////////////////////////////////////////////
     // You will have to change the contents of this matrix for the exercises
-    float model_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
+    /*float model_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                              0.0f, 1.0f, 0.0f, 0.0f, 
                              0.0f, 0.0f, 1.0f, 0.0f, 
                              0.0f, 0.0f, 0.0f, 1.0f};
     glm::mat4 model_mat = glm::make_mat4(model_array);
-    
+    */
+
+//------------------------------------------------------------------------------------------------------------  
+    // Resolução dos exercícios
+
     // Exercício 1: Escala
     /*
     float model_array[16] = {0.33f, 0.0f, 0.0f, 0.0f, 
                              0.0f, 1.5f, 0.0f, 0.0f, 
-                             0.0f, 0.0f, 1.0f, 0.0f, 
+                             0.0f, 0.0f, 1.0f, 0.0f,
                              0.0f, 0.0f, 0.0f, 1.0f};
     glm::mat4 model_mat = glm::make_mat4(model_array);
     */
@@ -90,14 +94,67 @@ void Display(void) {
     glm::mat4 model_mat = glm::make_mat4(model_array);
     */
 
+    // Exercício 5: Transformações livres
+    float model_array[16] = {1.5f, 0.0f, 0.0f, 0.0f, 
+                             0.0f, 0.5f, 0.0f, 0.0f, 
+                             0.0f, 0.0f, 1.5f, 0.0f, 
+                             0.0f, 0.0f, 0.0f, 1.0f};
+    glm::mat4 model_mat = glm::make_mat4(model_array);
+
+//------------------------------------------------------------------------------------------------------------  
+   
+    
     // Matriz View ////////////////////////////////////////////////////////////
     // You will have to change the contents of this matrix for the exercises
-    float view_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
+    /*float view_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                             0.0f, 1.0f, 0.0f, 0.0f, 
                             0.0f, 0.0f, 1.0f, 0.0f, 
                             0.0f, 0.0f, 0.0f, 1.0f};
 
     glm::mat4 view_mat = glm::make_mat4(view_array);
+    */
+    
+//------------------------------------------------------------------------------------------------------------  
+    // Resolução dos exercícios
+
+    // Exercício 5: Transformações livres
+    // Vetores para o exercício 5
+    glm::vec3 posicao = glm::vec3(-0.5f, 0.25f, 0.5f);
+    glm::vec3 up = glm::vec3(0.0f, 0.0f, 1.0f);
+    glm::vec3 direcao = glm::vec3(-1.0f, -1.0f, -1.0f);
+
+    // Exercício 4: Posição da Câmera
+    // Vetores para o exercício 4
+    /*
+    glm::vec3 posicao = glm::vec3(-0.1f, 0.1f, 0.1f);
+    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 direcao = glm::vec3(0.0f, 0.0f, -1.0f);
+    */
+    glm::vec3 zcam = -glm::normalize(direcao - posicao);
+    glm::vec3 xcam = glm::normalize(glm::cross(up, zcam));
+    glm::vec3 ycam = glm::normalize(glm::cross(zcam, xcam));
+
+    // Criando a matrix B
+    float matrixB_array[16] = {xcam.x, ycam.x, zcam.x, 0.0f,
+                               xcam.y, ycam.y, zcam.y, 0.0f,
+                               xcam.z, ycam.z, zcam.z, 0.0f,
+                               0.0f, 0.0f, 0.0f, 1.0f};
+
+    glm::mat4 B_matrix = glm::make_mat4(matrixB_array);
+
+    // Criando a matrix T
+    float matrixT_array[16] = {1.0f, 0.0f, 0.0f, 0.0f,
+                               0.0f, 1.0f, 0.0f, 0.0f,
+                               0.0f, 0.0f, 1.0f, 0.0f,
+                               -posicao.x, -posicao.y, -posicao.z, 1.0f};
+
+    glm::mat4 T_matrix = glm::make_mat4(matrixT_array);
+
+    // Nova Matriz_View
+    glm::mat4 view_mat = B_matrix * T_matrix;
+
+//------------------------------------------------------------------------------------------------------------  
+
 
     // Matriz Projection //////////////////////////////////////////////////////
     // You will have to change the contents of this matrix for the exercises
@@ -108,15 +165,31 @@ void Display(void) {
 
     glm::mat4 proj_mat = glm::make_mat4(proj_array);
     */
-    //Exercício 3: Projeção Perspectiva
-    
+
+//------------------------------------------------------------------------------------------------------------  
+    // Resolução dos exercícios
+
+    // Exercício 3: Projeção Perspectiva
+    // Parâmetro d = 1/8
+    /*
     float proj_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                             0.0f, 1.0f, 0.0f, 0.0f, 
-                            0.0f, 0.0f, 1.0f, -2.0f, 
-                            0.0f, 0.0f, 0.5f, 1.0f};
+                            0.0f, 0.0f, 1.0f, -8.0f, 
+                            0.0f, 0.0f, 0.125f, 0.0f};
 
     glm::mat4 proj_mat = glm::make_mat4(proj_array);
-    
+    */
+
+    // Exercício 5: Transformações livres
+    // d = 1/5
+    float proj_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
+                            0.0f, 1.0f, 0.0f, 0.0f, 
+                            0.0f, 0.0f, 1.0f, -5.0f, 
+                            0.0f, 0.0f, 0.2f, 0.0f};
+
+    glm::mat4 proj_mat = glm::make_mat4(proj_array);
+
+//------------------------------------------------------------------------------------------------------------  
 
     // Thr NDC is a left handed system, so we flip along the Z axis.
     // IMPORTANT: Do not change the contents of this matrix!!!!!!
@@ -125,21 +198,6 @@ void Display(void) {
                               0.0f, 0.0f, -1.0f, 0.0f, 
                               0.0f, 0.0f,  0.0f, 1.0f};
     glm::mat4 flip_z_mat = glm::make_mat4(flip_z_array);
-
-    // Exercício 4: Posição da Câmera
-    // Vetores inicias
-    glm::vec3 posicao = glm::vec3(-0.1f, 0.1f, 0.25f);
-    glm::vec3 up = glm::vec3(0, 1, 0);
-    glm::vec3 apontando = glm::vec3(0, 0, 0);
-
-    // Construção da Base
-    // xcam = (up * zcam)/|up * zcam|
-    // ycam = (zcam * xcam)/|zcam * xcam|
-    // zcam = -direção/|direção|, vetor de direção obtido subtraindo a posição da câmera do ponto que ela está apontando
-
-    glm::vec3 zcam = glm::normalize(apontando - posicao);
-    glm::vec3 xcam = glm::cross(up, zcam);
-    glm::vec3 ycam = glm::cross(xcam, zcam);
 
     // Matriz ModelViewProjection /////////////////////////////////////////////
     glm::mat4 model_view_proj_mat = flip_z_mat * proj_mat * view_mat * model_mat;
