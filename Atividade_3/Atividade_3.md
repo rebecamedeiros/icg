@@ -10,6 +10,7 @@ Matrícula: 11500782
 
 1. [Introdução](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#introdu%C3%A7%C3%A3o)
 2. [Desenvolvimento](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#desenvolvimento) <br />
+   * [Pipeline Gráfico](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#pipeline-gr%C3%A1fico)<br />
    * [Exercício 1](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-1-escala)<br />
    * [Exercício 2](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-2-transla%C3%A7%C3%A3o) <br />
    * [Exercício 3](https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Atividade_3.md#exerc%C3%ADcio-3-proje%C3%A7%C3%A3o-perspectiva) <br />
@@ -23,6 +24,14 @@ Esta atividade é a terceira atividade prática para a disciplina de Introduçã
 
 A atividade consiste em modificar no programa template (fornecido pelo professor) as matrizes MModel, MView e MProjection para gerar as imagens presentes na documentação da atividade. 
 
+As partes do código onde se encontram as **resoluções da atividade** estão comentadas da seguinte forma:
+
+```
+//------------------------------------------------------------------------------------------------------------  
+    // Resolução dos exercícios
+```
+
+
 ## Desenvolvimento
 O sistema operional utilizado para atividade foi o Linux Ubuntu 18.04 LTS.
 
@@ -31,7 +40,7 @@ O primeiro passo para o desenvolvimento da atividade foi o *download* do código
 ```
 $ make
 ```
-Alguns *warnings* apareceram na tela durante a compilação, mesmo assim o código compilou sem problemas. A primeira dificuldade apareceu durante a execução, com a janela de exibição abrindo e fechando rapidamente sem exibir as imagens esperadas. Observando as mensagens de erro foi observado que o erro era relacionado ao GLSL, com o comando abaixo [1] foi possível executar o código, porém não é a melhor solução já que a cada execução o comando deve ser usado.
+Alguns *warnings* apareceram na tela durante a compilação, mesmo assim o código compilou sem problemas. A primeira dificuldade apareceu durante a execução, com a janela de exibição abrindo e fechando rapidamente sem exibir as imagens esperadas. Observando as mensagens de erro foi observado que o erro era relacionado ao GLSL, com o comando abaixo [1] foi possível executar o código.
 
 ```
 $ export MESA_GL_VERSION_OVERRIDE=3.3
@@ -40,7 +49,7 @@ A figura abaixo mostra o resultado da execução:
 
 <p align="center">
   <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img1.png" /> <br />
-  Figura 2 - Janela exibida durante a execução.
+  Figura 1 - Janela exibida durante a execução.
 </p>
 
 ### Pipeline Gráfico
@@ -52,7 +61,7 @@ A figura abaixo mostra o resultado da execução:
   Figura 2 - Etapas do pipeline gráfico.
 </p>
 
-As transformações aplicadas aos objetos presentes em cena podem ser de: **escala**, **rotação**, **translação** e **shear**. 
+As transformações aplicadas aos objetos podem ser de: **escala**, **rotação**, **translação** e **shear**. 
 
 Como mostra a Figura [2] o espaço do objeto é o primeiro estágio do pipeline. Neste espaço acontece a modelagem dos objetos no sistema de coordenadas do espaço. A matriz de modelagem (MModel) é usada para levar os objetos para o espaço do universo, a matriz contém todas as transformações necessárias, por exemplo, transformações de escala ou rotação. A passagem entre os espaços ocorre com a multiplicação dos vértices do objeto pela matrix MModel. 
 
@@ -163,14 +172,22 @@ E a matrix de visualização foi criada calculando o produto das matrizes BT e T
 
 ### Exercício 5: Transformações Livres
 
+Para este exercício devem ser feitas modificações nas matrizes MModel, MView e MProjection. Para a matriz de modelagem os fatores passaram a ser: (x, y, z) = (3/2, 1/2, 3/2). Para a matriz de projeção o valor de d passou a ser d = 1/5. E para a matrix view, os valores foram os seguintes: posição = (-1/2, 1/4, 1/2), up = (0, 0, 1) e direção = (-1, -1, -1). O resultado foi o seguinte: 
+
+<p align="center">
+  <img src="https://github.com/rebecamedeiros/icg/blob/main/Atividade_3/Figuras/img8.png" /> <br />
+  Figura 7 - Resultado da mudança na matrix.
+</p>
+
 
 ## Resultados
 Foi possível chegar em todos os exercícios aos resultados presentes na documentação da atividade. Houve um pouco de dificuldade no ínicio para entender a organização das matrizes no **glm** e as funções utilizadas.
 
-O exercício 4 apresentou a maior dificuldade, com o auxílio da documentação sobre as funções do **glm** foi possível entender como os vetores e matrizes poderiam ser criados. O resultado das primeiras execuções deste exercício apresentaram resultados diferentes da Figura [8] presente na documentação. Primeiro apareceu apenas uma linha azul inclinada, depois os dois triângulos apareceram de ponta-cobiça. Isto aconteceu por conta de erros nos valores dos vetores e falta da normalização de Xcam, Ycam e Zcam. 
+O exercício 4 apresentou a maior dificuldade, o resultado das primeiras execuções deste exercício apresentaram resultados diferentes da Figura [8] presente na documentação. Primeiro apareceu apenas uma linha azul inclinada, depois os dois triângulos apareceram de ponta-cabeça. Isto aconteceu por conta de erros nos valores dos vetores, falta da normalização e pelo local em que o código estava. 
 
 ## Referências
 1 - [Erro GLSL](https://stackoverflow.com/questions/52592309/0110-error-glsl-3-30-is-not-supported-ubuntu-18-04-c) <br />
 2 - [OpenGL Mathematics (GLM)](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html) <br />
 3 - [Funções Geométricas](https://glm.g-truc.net/0.9.4/api/a00131.html) <br />
 4 - [Matrizes](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/#the-projection-matrix) <br />
+5 - Aulas da disciplina de Introdução à Computação Gráfica
