@@ -14,6 +14,9 @@ Atualizações: adicionada função DrawLine() e DrawTriangle().
 
 1. [Introdução](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#introdu%C3%A7%C3%A3o)
 2. [Desenvolvimento](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#desenvolvimento)
+    * [PutPixel()](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#putpixel)
+    * [DrawLine()](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#drawline)
+    * [DrawTriangle()](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#drawtriangle)
 3. [Resultados](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#resultados)
 4. [Referências](https://github.com/rebecamedeiros/icg/blob/main/Atividade_2/Atividade_2.md#refer%C3%AAncias)
 
