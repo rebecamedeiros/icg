@@ -7,7 +7,7 @@ Aluna: Rebeca Andrade Medeiros <br />
 Matrícula: 11500782
 
 **Atualizado em: 09 de Dezembro de 2020** <br />
-Atualizações: adicionada função DrawLine() e DrawTriangle().
+Atualizações: adicionadas funções DrawLine() e DrawTriangle().
 
 
 ## Sumário
