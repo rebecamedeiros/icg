@@ -74,7 +74,7 @@ Os valores para os vértices e cores foram definidos dentro da função **MyGlDr
 
 ### DrawTriangle()
 
-Esta função deve receber as posições de três vértices para realizar o desenho de um triângulo na tela. Os valores dos vértices e cores foram estabelidos dentro da função **MyGlDraw()**. A função **DrawTriangle** ficou da seguinte forma:
+Esta função deve receber as posições de três vértices para realizar o desenho de um triângulo na tela. Os valores dos vértices e cores foram estabelidos dentro da função **MyGlDraw()**. A função **DrawTriangle()** ficou da seguinte forma:
 
 ```
 void DrawTriangle(Pontos p1, Pontos p2, Pontos p3, Cores c1, Cores c2, Cores c3){
